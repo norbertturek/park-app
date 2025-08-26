@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
-import { clearToken, getToken } from '../features/auth/tokenStorage'
-import navItems from '../data/navItems'
-import pilots from '../data/pilots'
+import { clearToken, getToken } from '@/features/auth/tokenStorage'
+import navItems from '@data/navItems'
+import pilots from '@data/pilots'
 
 import AppHeader from '@components/layout/AppHeader.vue'
 import NavBar from '@components/layout/NavBar.vue'
