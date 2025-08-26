@@ -13,13 +13,5 @@ export default defineConfig({
       '@components': path.resolve(__dirname, './src/components'),
       '@data': path.resolve(__dirname, './src/data')
     }
-  },
-  build: {
-    rollupOptions: {
-      external: ['@rollup/rollup-linux-x64-gnu']
-    }
-  },
-  optimizeDeps: {
-    exclude: ['@rollup/rollup-linux-x64-gnu']
   }
 });
