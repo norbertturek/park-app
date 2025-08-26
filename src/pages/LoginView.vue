@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { reactive, ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import { useLogin } from '../features/auth/useLogin'
 import { getToken, clearToken } from '../features/auth/tokenStorage'
 import LogoMark from '../components/LogoMark.vue'
@@ -7,18 +8,28 @@ import LogoMark from '../components/LogoMark.vue'
 const form = reactive({ email: 'tester@parkapp.pl', password: '123$TesT$321' })
 const { login, loading, error } = useLogin()
 const loggedIn = ref(!!getToken())
+const router = useRouter()
 
 async function onSubmit(e: Event) {
   e.preventDefault()
   if (!form.email || !form.password) return
   const res = await login({ email: form.email, password: form.password })
-  if (res) loggedIn.value = true
+  if (res) {
+    loggedIn.value = true
+    router.push('/app')
+  }
 }
 
 function logout() {
   clearToken()
   loggedIn.value = false
 }
+
+onMounted(() => {
+  if (getToken()) {
+    router.replace('/app')
+  }
+})
 </script>
 
 <template>
@@ -114,6 +125,3 @@ function logout() {
     </div>
   </div>
 </template>
-
-<style scoped>
-</style>

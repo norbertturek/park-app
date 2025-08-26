@@ -7,21 +7,12 @@ interface Props {
   roundedClass?: string
 }
 
-const { label, size, bgClass, textClass, roundedClass } = withDefaults(defineProps<Props>(), {
-  label: 'P',
-  size: 32,
-  bgClass: 'bg-blue-600',
-  textClass: 'text-white',
-  roundedClass: 'rounded-full',
-})
+const { label = 'P', size = 32, bgClass = 'bg-blue-600', textClass = 'text-white', roundedClass = 'rounded-full' } = defineProps<Props>()
 </script>
 
 <template>
-  <div
-    class="flex items-center justify-center font-semibold select-none"
-    :class="[bgClass, textClass, roundedClass]"
-    :style="{ width: `${size}px`, height: `${size}px` }"
-  >
+  <div class="flex items-center justify-center font-semibold select-none" :class="[bgClass, textClass, roundedClass]"
+    :style="{ width: `${size}px`, height: `${size}px` }">
     {{ label }}
   </div>
 </template>
