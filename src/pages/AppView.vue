@@ -112,7 +112,7 @@ onMounted(() => {
         </div>
 
         <div class="flex justify-center gap-4 mt-10">
-            <span v-for="(p, i) in pilots" :key="i" @click="activeIndex = i"
+            <span v-for="(_, i) in pilots" :key="i" @click="activeIndex = i"
                 class="inline-block rounded-full cursor-pointer h-6 w-6 inner-shadow"
                 :class="{ 'bg-primary': activeIndex === i }"></span>
         </div>
