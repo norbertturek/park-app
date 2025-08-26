@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #15215C; /* blue */
+  --color-secondary: #F3AD3E; /* orange */
+  --color-gray: #C6C6C6; /* gray */
+
+  /* orange gradient */
+  --color-orange-start: #FFB034;
+  --color-orange-end: #FADF99;
+}
 
 :root {
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
