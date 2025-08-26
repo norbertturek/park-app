@@ -1,12 +1,13 @@
 <script lang="ts" setup>
 import MenuIcon from '../assets/menu.svg?component'
-import ArrowIcon from '../assets/arrow.svg?component'
-import HeaderImage from '../assets/header-bg-image.svg?component'
+import AppHeader from '../components/layout/AppHeader.vue'
 import PilotIcon from '../assets/pilot.svg?component'
 import PointIcon from '../assets/point.svg?component'
 import ListIcon from '../assets/list.svg?component'
 import WalletIcon from '../assets/wallet.svg?component'
 import CarIcon from '../assets/car.svg?component'
+
+import Button from '../components/ui/Button.vue'
 
 import { ref, computed, watch, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
@@ -80,18 +81,11 @@ onMounted(() => {
 </script>
 
 <template>
-    <header
-        class="rounded-b-xl p-8 text-primary shadow bg-gradient-to-b from-orange-start to-orange-end relative min-h-72">
-        <div class="flex items-top gap-6">
-            <button @click="onBack" class="flex items-center justify-center gap-2 border-3 w-10 h-10 rounded-full cursor-pointer">
-                <ArrowIcon />
-            </button>
-
-            <h1 class="text-2xl font-bold text-[32px]">Otwórz<br> bramę</h1>
-        </div>
-
-        <HeaderImage class="text-white absolute right-0 bottom-0" />
-    </header>
+    <AppHeader :showBack="true" @back="onBack">
+        <template #title>
+            Otwórz<br> bramę
+        </template>
+    </AppHeader>
 
     <div class="flex flex-col py-12 md:items-center">
         <div class="flex flex-row gap-6">
@@ -99,12 +93,9 @@ onMounted(() => {
             <div class="flex flex-col gap-6">
                 <h2 class="text-2xl font-bold text-primary text-center">{{ currentPilot.name }}</h2>
                 <div class="mt-4 flex flex-col gap-4 md:min-w-2xs">
-                    <button v-for="(bram, j) in currentPilot.brams" :key="j" @click="activeBramIndex = j"
-                        class="px-4 py-2 rounded-lg border-2 transition-colors cursor-pointer font-medium text-center"
-                        :class="j === activeBramIndex ? 'bg-primary text-white border-primary' : 'border-primary hover:bg-gray-200'"
-                        :aria-pressed="j === activeBramIndex">
+                    <Button v-for="(bram, index) in currentPilot.brams" :key="index" @click="activeBramIndex = index" :active="index === activeBramIndex">
                         {{ bram.name }}
-                    </button>
+                    </Button>
                 </div>
 
                 <p class="text-lg text-primary text-center">Wybierz bramę, by otworzyć</p>
