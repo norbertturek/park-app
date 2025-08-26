@@ -83,7 +83,7 @@ onMounted(() => {
     <header
         class="rounded-b-xl p-8 text-primary shadow bg-gradient-to-b from-orange-start to-orange-end relative min-h-72">
         <div class="flex items-top gap-6">
-            <button @click="onBack" class="flex items-center justify-center gap-2 border-3 w-10 h-10 rounded-full">
+            <button @click="onBack" class="flex items-center justify-center gap-2 border-3 w-10 h-10 rounded-full cursor-pointer">
                 <ArrowIcon />
             </button>
 
