@@ -54,11 +54,6 @@ onMounted(() => {
             class="w-full inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-700 hover:bg-gray-50 active:bg-gray-100 transition"
             @click="logout"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
-              <path d="M3 4.75A1.75 1.75 0 014.75 3h5.5A1.75 1.75 0 0112 4.75v2a.75.75 0 01-1.5 0v-2a.25.25 0 00-.25-.25h-5.5a.25.25 0 00-.25.25v10.5c0 .138.112.25.25.25h5.5a.25.25 0 00.25-.25v-2a.75.75 0 011.5 0v2A1.75 1.75 0 0110.25 17h-5.5A1.75 1.75 0 013 15.25V4.75z" />
-              <path d="M12.22 10.53a.75.75 0 010-1.06l2.25-2.25a.75.75 0 111.06 1.06L14.81 9.5h2.69a.75.75 0 010 1.5h-2.69l.72.72a.75.75 0 11-1.06 1.06l-2.25-2.25z" />
-            </svg>
-            Log out
           </button>
         </div>
 
