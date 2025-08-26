@@ -1,8 +1,9 @@
 import { worker } from './browser'
 
 export async function setupMocks() {
-  // Start the Service Worker in development only
-  if (import.meta.env.DEV) {
-    await worker.start({ onUnhandledRequest: 'bypass' })
-  }
+  // Start the Service Worker in all environments (needed for Vercel demo)
+  await worker.start({
+    onUnhandledRequest: 'bypass',
+    serviceWorker: { url: '/mockServiceWorker.js' },
+  })
 }

@@ -5,7 +5,7 @@ import { useLogin } from '../features/auth/useLogin'
 import { getToken, clearToken } from '../features/auth/tokenStorage'
 import LogoMark from '../components/LogoMark.vue'
 
-const form = reactive({ email: 'tester@parkapp.pl', password: '123$TesT$321' })
+const form = reactive({ email: 'demo@park.app', password: 'demo' })
 const { login, loading, error } = useLogin()
 const loggedIn = ref(!!getToken())
 const router = useRouter()
@@ -119,7 +119,7 @@ onMounted(() => {
             <span>{{ loading ? 'Signing in…' : 'Sign in' }}</span>
           </button>
 
-          <p class="text-xs text-gray-500 text-center">Tip: tester@parkapp.pl / 123$TesT$321</p>
+          <p class="text-xs text-gray-500 text-center">Tip: demo@park.app / demo</p>
         </form>
       </div>
     </div>

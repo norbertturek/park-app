@@ -10,10 +10,10 @@ export const handlers = [
     await new Promise((r) => setTimeout(r, 400))
 
     // Success scenario (use provided tester credentials)
-    if (email === 'tester@parkapp.pl' && password === '123$TesT$321') {
+    if (email === 'demo@park.app' && password === 'demo') {
       return HttpResponse.json({
         data: {
-          login: { token: 'mock-token-123' },
+          login: { token: 'demo-token' },
         },
       })
     }

@@ -8,10 +8,10 @@ import { setupMocks } from './mocks'
 import LoginView from './pages/LoginView.vue'
 import AppView from './pages/AppView.vue'
 
-// Start MSW in development to mock GraphQL requests
-if (import.meta.env.DEV) {
-  await setupMocks()
-}
+// Start MSW in all environments to mock GraphQL requests (required for Vercel demo)
+// if (import.meta.env.DEV) {
+await setupMocks()
+// }
 
 const router = createRouter({
   history: createWebHistory(),

@@ -8,6 +8,7 @@ A small Vue 3 + TypeScript app for opening gates/booms ("bramy"/"szlabany"). It 
 - Vue Router 4
 - Tailwind CSS v4 (via `@tailwindcss/vite`)
 - MSW (Mock Service Worker) for dev-time GraphQL mocks
+  - Note: For the public demo on Vercel, MSW is also started in production so the app works without a backend.
 - `vite-svg-loader` for importing SVGs as Vue components (`?component`)
 
 ## Getting Started
@@ -82,7 +83,13 @@ yarn preview
 
 ## Credentials (for local dev)
 
-- Tip on the login form: `tester@parkapp.pl` / `123$TesT$321`
+- Tip on the login form: `demo@park.app` / `demo`
+
+## Deployment (Vercel)
+
+- SPA rewrites are configured in `vercel.json` so client-side routing works.
+- MSW is started in production via `src/mocks/index.ts` and `src/main.ts` to mock the `/graphql` Login mutation on Vercel.
+- If/when you connect a real backend, revert to starting MSW only in development and remove the production worker start.
 
 ## Scripts
 
