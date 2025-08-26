@@ -1,34 +1,29 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import LoginView from './pages/LoginView.vue'
+import LogoMark from './components/LogoMark.vue'
 </script>
 
 <template>
-  <div>
-    <h1 class="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+  <div class="min-h-screen bg-gray-50 text-slate-900">
+    <!-- Top Nav -->
+    <header class="sticky top-0 z-30 border-b border-gray-200 bg-white/80 backdrop-blur">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <LogoMark :size="32" />
+          <span class="font-semibold tracking-tight">ParkApp</span>
+        </div>
+      </div>
+    </header>
 
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    <!-- Page content -->
+    <main>
+      <LoginView />
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 text-xs text-slate-500 flex items-center justify-between">
+      <span> {{ new Date().getFullYear() }} ParkApp</span>
+    </footer>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
-
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
